@@ -6,12 +6,24 @@
 
 // 2- init express
 
-import express, {Request, Response} from 'express';
+import express, {NextFunction, Request, Response} from 'express';
 
 const app = express();
 
 // 3- rota com POST
 app.use(express.json())
+
+
+// 11- middleware para todas as rotas
+
+function showPath(req: Request, res: Response, next: NextFunction){
+    console.log(req.path);
+    next();
+}
+
+app.use(showPath);
+
+
 app.get('/', (req, res) => {
     return res.send("Olá Express")
 })
@@ -72,13 +84,67 @@ app.get('/api/product/:id', (req: Request, res: Response) => {
         return res.json(product);
     } else {
         return res.send("Produto não encontrado");
-    }
-
-    
+    }  
 })
+
+// 8- rotas complexas
+app.get('/api/product/:id/review/:reviewid', (req: Request, res: Response) => {
+
+    console.log(req.params);
+    
+    const productId = req.params.id;
+    const reviewId = req.params.reviewid;
+
+    return res.send(`Acessando a review ${productId} ${reviewId}`);
+
+})
+
+// 9- router hendler
+app.get('/api/user/:id', getUser)
+
+function getUser(req: Request, res: Response) {
+    console.log(`Resgatando o usuario com id: ${req.params.id}`);
+    return res.send("O usuario foi encontrado.");
+}
+
+// 10- middleware
+const checkUser = (req: Request, res: Response, next: NextFunction) => {
+    if(req.params.id === "1"){
+        console.log("Pode seguir");
+        next()
+    } else {
+        console.log("Acesso restrito");
+        
+    }
+}
+
+app.get('/api/user/:id/access', checkUser, (req: Request, res: Response) => {
+    return res.json({msg: "Bem vindo a area administrativa"});
+})
+
+// 12- req e res com generics
+
+app.get('/api/user/:id/details/:name', (
+    req: Request<{id: string, name: string}>, 
+    res: Response<{status: boolean}>
+    ) => {
+    console.log(`ID: ${req.params.id}`);
+    console.log(`Name: ${req.params.name}`);
+    
+    return res.json({status: true})
+})
+
+// 13 - try cat
+app.get("/api/error", (req: Request, res: Response) =>{
+    try {
+        throw new Error("Algo deu errado!!");
+    } catch (e: any) {
+        res.status(500).json({msg: e.message});
+    }
+});
 
 
 app.listen(3000, () => {
-    console.log('executando na porta 8000');
+    console.log('executando na porta 3000');
 })
 
