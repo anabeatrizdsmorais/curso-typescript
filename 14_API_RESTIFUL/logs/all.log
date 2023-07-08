@@ -1,0 +1,11 @@
+23-07-07 23:10:02:102 - [32minfo[39m: [32mRodando na porta 3000[39m
+23-07-07 23:10:16:1016 - [31merror[39m: [31mRodando na porta 3000[39m
+23-07-07 23:10:27:1027 - [32minfo[39m: [32mRodando na porta 3000[39m
+23-07-07 23:10:53:1053 - [32minfo[39m: [32mRodando na porta 3000[39m
+23-07-07 23:11:02:112 - [32minfo[39m: [32mRodando na porta 3000[39m
+23-07-07 23:11:09:119 - [31merror[39m: [31mNão foi possivel conectar![39m
+23-07-07 23:11:09:119 - [32minfo[39m: [32mRodando na porta 3000[39m
+23-07-07 23:11:13:1113 - [31merror[39m: [31mNão foi possivel conectar![39m
+23-07-07 23:11:16:1116 - [31merror[39m: [31mNão foi possivel conectar![39m
+23-07-07 23:11:16:1116 - [31merror[39m: [31mErro: MongoAPIError: URI must include hostname, domain name, and tld[39m
+23-07-07 23:11:16:1116 - [32minfo[39m: [32mRodando na porta 3000[39m
