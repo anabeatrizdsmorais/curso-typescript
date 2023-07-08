@@ -18,7 +18,14 @@ import router from "./router";
 // Logger
 import Logger from "../config/logger";
 
+
+//morgan middleware
+import morganMiddleware from "./middleware/morganMiddleware";
+
+app.use(morganMiddleware);
+
 app.use('/api/', router);
+
 
 //app port
 const port = config.get<number>("port");
