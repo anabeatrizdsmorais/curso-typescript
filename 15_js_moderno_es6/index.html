@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript ES6</title>
+</head>
+<body>
+    <script>
+        
+        var x = 10
+        var y = 15
+
+        if(y > 10){
+            var x=5
+            console.log(x);
+        }
+
+        console.log(x);
+
+        let a = 10
+        let b = 15
+
+        if(b > 10){
+            let a=5
+            console.log(a);
+        }
+
+
+        for (let index = 0; index < 5; index++) {
+            console.log(i);
+        }
+
+        console.log(i);
+
+
+        // 2 arrow function
+        const sum = function sum(a,b) {
+            return a + b;
+        }
+
+        // 1.1
+        // const arrowSum = (a,b) => {
+        //     return a+b
+        // }
+        
+        //1.2
+        const arrowSum = (a,b) => a+b
+
+
+        // 3- filter
+        const arr = [1,2,3,4,5,6];
+
+        const highNumbers = arr.filter(() => {
+            if(n >= 3)
+                return 3 
+        })
+
+        // destructuring
+        const fruits = ["maca", "laranja", "mamao"];
+        const [f1,f2,f3] = fruits
+
+
+        console.log(f1);
+        console.log(f2);
+
+        // spread operator
+        const a1 = [1,2,3]
+        const a2 = [4,5,6]
+
+        const a3 = [...a1, ...a2]
+
+        console.log(a3);
+
+        
+    </script>
+</body>
+</html>
